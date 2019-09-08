@@ -1,0 +1,374 @@
+/* Set các giá trị với màn hình tương ứng */
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+ul {
+  list-style-type: none;
+  font-size: 14px;
+  padding: 0px;
+  letter-spacing: 1px;
+}
+%a {
+  text-decoration: none;
+  color: rgb(48, 47, 47);
+}
+@mixin imgCon($link, $x) {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: {
+    image: $link;
+    position: $x 0;
+  }
+}
+.container {
+  font-family: "Montserrat", sans-serif;
+  header {
+    max-width: 250px;
+    @include tablet {
+      min-width: 100%;
+      min-height: 100px;
+      position: relative;
+      padding: 0;
+      float: none;
+    }
+    @include mobile {
+      min-width: 100%;
+      min-height: 100px;
+      position: relative;
+      padding: 0;
+      float: none;
+    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    float: left;
+    min-height: 100%;
+    z-index: 9999;
+    padding-left: 50px;
+    overflow: hidden;
+    nav {
+      @include tablet {
+        .top-menu {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 30px;
+          #menu-icon {
+            background-image: url(./imgs/men_icons.png);
+            width: 40px;
+            height: 40px;
+            margin-top: 20px;
+            margin-right: 20px;
+          }
+        }
+      }
+      @include mobile {
+        .top-menu {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 30px;
+          #menu-icon {
+            background-image: url(./imgs/men_icons.png);
+            width: 40px;
+            height: 40px;
+            margin-top: 20px;
+            margin-right: 20px;
+          }
+        }
+      }
+      .img-logo {
+        .logo {
+          @include tablet {
+            margin-top: 20px;
+            margin-left: 20px;
+            display: block;
+          }
+          @include mobile {
+            margin-top: 20px;
+            margin-left: 20px;
+            display: block;
+          }
+          margin-top: 100px;
+          cursor: pointer;
+        }
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      .nav-link {
+        margin-top: 100px;
+        @include tablet {
+          margin-top: 2;
+          align-items: center;
+          display: none;
+        }
+        @include mobile {
+          margin-top: 2;
+          align-items: center;
+          display: none;
+        }
+        li {
+          margin-bottom: 30px;
+          padding: 0;
+          @include tablet {
+            text-align: center;
+            border-top: 0.2px solid #0000009c;
+            margin-bottom: 0px;
+            padding: 20px 0;
+          }
+          @include mobile {
+            text-align: center;
+            border-top: 0.2px solid #0000009c;
+            margin-bottom: 0px;
+            padding: 20px 0;
+          }
+          a {
+            @extend %a;
+          }
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+        .selected {
+          opacity: 0.6;
+        }
+      }
+    }
+    .footer {
+      @include tablet {
+        display: none;
+      }
+      @include mobile {
+        display: none;
+      }
+      max-width: 200px;
+      position: inherit;
+      bottom: 20;
+      footer {
+        .footer-icon {
+          display: flex;
+          float: left;
+          li {
+            $url: url("./imgs/sm.png");
+            $url-hover: url("./imgs/sm_hover.png");
+            padding-right: 5px;
+            .fb {
+              @include imgCon($url, 0);
+              &:hover {
+                @include imgCon($url-hover, 0);
+              }
+            }
+            .gg {
+              @include imgCon($url, -31);
+              &:hover {
+                @include imgCon($url-hover, -31);
+              }
+            }
+            .be {
+              @include imgCon($url, -62);
+              &:hover {
+                @include imgCon($url-hover, -62);
+              }
+            }
+            .tt {
+              @include imgCon($url, -93);
+              &:hover {
+                @include imgCon($url-hover, -93);
+              }
+            }
+            .rs {
+              @include imgCon($url, -155);
+              &:hover {
+                @include imgCon($url-hover, -155);
+              }
+            }
+          }
+        }
+        div {
+          p {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  article {
+    padding: {
+      left: 300px;
+      top: 50px;
+    }
+    position: relative;
+    @include tablet {
+      background-color: #eeeeee;
+      padding: 0;
+    }
+    @include mobile {
+      background-color: #eeeeee;
+      padding: 0;
+    }
+    section {
+      .work {
+        float: left;
+        width: 33.3333333333333%;
+        position: relative;
+        @include tablet {
+          float: left;
+          width: 50%;
+          position: relative;
+        }
+        @include mobile {
+          float: left;
+          width: 100%;
+          position: relative;
+        }
+        a {
+          color: black;
+          .media {
+            width: 100%;
+            z-index: 55;
+            transition: opacity 0.5s;
+          }
+          .caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            .work-title {
+              position: absolute;
+              top: 40%;
+              display: block;
+              text-align: center;
+              width: 100%;
+              h1 {
+                $border: 1px solid #bfbbbb;
+                position: relative;
+                display: inline-block;
+                border: {
+                  bottom: $border;
+                  top: $border;
+                }
+                padding: 20px 0;
+              }
+            }
+          }
+          &:hover {
+            .media {
+              opacity: 0;
+            }
+            .caption {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    .main {
+      width: 100%;
+      // height: 100%;
+      display: block;
+      background-color: #f6f6f6;
+      .wapper {
+        width: 95%;
+        margin: auto;
+      }
+      .top {
+        width: 100%;
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        background: {
+          image: url(./imgs/hero_image.jpg);
+          size: cover;
+          position: 0px -86px;
+        }
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        .top-wapper {
+          position: absolute;
+          bottom: 0;
+          ul {
+            display: flex;
+            justify-content: flex-end;
+            margin: 0;
+            li {
+              position: relative;
+              a {
+                width: 40px;
+                height: 40px;
+                display: block;
+                float: right;
+                background-image: url(./imgs/p_navigation.png);
+              }
+              .previous {
+                background-position: 0 42px;
+              }
+              .grid {
+                background-position: -41px 42px;
+                margin: {
+                  left: 1px;
+                  right: 1px;
+                }
+              }
+              .next {
+                background-position: -82 42px;
+              }
+            }
+          }
+          .title {
+            display: block;
+            width: 100%;
+            color: #4b4848;
+            font: {
+              family: raleway-bold, arial;
+              size: 26px;
+              weight: 700;
+            }
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            text-transform: uppercase;
+            line-height: 30px;
+            margin: 0 !important;
+            overflow: hidden;
+            box-sizing: border-box;
+          }
+        }
+      }
+      .bottom {
+        .content {
+          color: #4b4848;
+          font-family: raleway-regular, arial;
+          font-size: 15px;
+          line-height: 22px;
+          padding: 60px 30px;
+          background: #fff;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+}
